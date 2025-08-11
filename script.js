@@ -93,24 +93,26 @@ function ifPlayerWin() {
 }
 
 btnNew.addEventListener('click', function () {
-  if (activePlayer === 0) {
+  if (activePlayer === 0 || activePlayer === 1) {
     if (!playing) {
       ifPlayerWin();
       resetValues();
+      if (activePlayer === 1) switchPlayer();
     } else {
       resetValues();
       diceEl.classList.add('hidden');
+      if (activePlayer === 1) switchPlayer();
     }
   }
-  if (activePlayer === 1) {
-    if (!playing) {
-      ifPlayerWin();
-      resetValues();
-      switchPlayer();
-    } else {
-      resetValues();
-      switchPlayer();
-      diceEl.classList.add('hidden');
-    }
-  }
+  // if (activePlayer === 1) {
+  //   if (!playing) {
+  //     ifPlayerWin();
+  //     resetValues();
+  //     switchPlayer();
+  //   } else {
+  //     resetValues();
+  //     switchPlayer();
+  //     diceEl.classList.add('hidden');
+  //   }
+  // }
 });
