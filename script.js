@@ -73,11 +73,21 @@ btnHold.addEventListener('click', function () {
 // reset the game
 
 function init() {
-  scores = [0,0];
+  scores = [0, 0];
   currentScore = 0;
   activePlayer = 0;
   playing = true;
+
+  let players = [0, 1];
+  players.forEach(num => {
+    document.querySelector(`#current--${num}`).textContent = 0;
+    document.querySelector(`#score--${num}`).textContent = 0;
+  });
 }
+
+btnNew.addEventListener('click', function () {
+  init();
+});
 
 // function resetValues() {
 //   currentScore = 0;
@@ -111,4 +121,4 @@ function init() {
 //       if (activePlayer === 1) switchPlayer();
 //     }
 //   }
-});
+// });
