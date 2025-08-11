@@ -82,7 +82,17 @@ function init() {
   players.forEach(num => {
     document.querySelector(`#current--${num}`).textContent = 0;
     document.querySelector(`#score--${num}`).textContent = 0;
+    document
+      .querySelector(`.player--${num}`)
+      .classList.remove('player--winner');
+    document
+      .querySelector(`.player--${num}`)
+      .classList.remove('player--active');
   });
+
+  player0El.classList.add('player--active');
+
+  diceEl.classList.add('hidden');
 }
 
 btnNew.addEventListener('click', function () {
