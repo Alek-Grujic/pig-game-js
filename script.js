@@ -16,7 +16,7 @@ score0El.textContent = 0;
 score1El.textContent = 0;
 diceEl.classList.add('hidden');
 
-const scores = [0, 0];
+let scores = [0, 0];
 let currentScore = 0;
 let activePlayer = 0;
 let playing = true;
@@ -66,6 +66,51 @@ btnHold.addEventListener('click', function () {
       diceEl.classList.add('hidden');
     } else {
       switchPlayer();
+    }
+  }
+});
+
+// reset the game
+
+function resetValues() {
+  currentScore = 0;
+  current0El.textContent = currentScore;
+  current1El.textContent = currentScore;
+  score0El.textContent = currentScore;
+  score1El.textContent = currentScore;
+  scores[0] = currentScore;
+  scores[1] = currentScore;
+}
+
+function ifPlayerWin() {
+  playing = true;
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.remove('player--winner');
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.add('player--active');
+}
+
+btnNew.addEventListener('click', function () {
+  if (activePlayer === 0) {
+    if (!playing) {
+      ifPlayerWin();
+      resetValues();
+    } else {
+      resetValues();
+      diceEl.classList.add('hidden');
+    }
+  }
+  if (activePlayer === 1) {
+    if (!playing) {
+      ifPlayerWin();
+      resetValues();
+      switchPlayer();
+    } else {
+      resetValues();
+      switchPlayer();
+      diceEl.classList.add('hidden');
     }
   }
 });
