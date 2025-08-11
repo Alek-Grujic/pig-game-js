@@ -72,47 +72,43 @@ btnHold.addEventListener('click', function () {
 
 // reset the game
 
-function resetValues() {
+function init() {
+  scores = [0,0];
   currentScore = 0;
-  current0El.textContent = currentScore;
-  current1El.textContent = currentScore;
-  score0El.textContent = currentScore;
-  score1El.textContent = currentScore;
-  scores[0] = currentScore;
-  scores[1] = currentScore;
-}
-
-function ifPlayerWin() {
+  activePlayer = 0;
   playing = true;
-  document
-    .querySelector(`.player--${activePlayer}`)
-    .classList.remove('player--winner');
-  document
-    .querySelector(`.player--${activePlayer}`)
-    .classList.add('player--active');
 }
 
-btnNew.addEventListener('click', function () {
-  if (activePlayer === 0 || activePlayer === 1) {
-    if (!playing) {
-      ifPlayerWin();
-      resetValues();
-      if (activePlayer === 1) switchPlayer();
-    } else {
-      resetValues();
-      diceEl.classList.add('hidden');
-      if (activePlayer === 1) switchPlayer();
-    }
-  }
-  // if (activePlayer === 1) {
-  //   if (!playing) {
-  //     ifPlayerWin();
-  //     resetValues();
-  //     switchPlayer();
-  //   } else {
-  //     resetValues();
-  //     switchPlayer();
-  //     diceEl.classList.add('hidden');
-  //   }
-  // }
+// function resetValues() {
+//   currentScore = 0;
+//   current0El.textContent = currentScore;
+//   current1El.textContent = currentScore;
+//   score0El.textContent = currentScore;
+//   score1El.textContent = currentScore;
+//   scores[0] = currentScore;
+//   scores[1] = currentScore;
+// }
+
+// function ifPlayerWin() {
+//   playing = true;
+//   document
+//     .querySelector(`.player--${activePlayer}`)
+//     .classList.remove('player--winner');
+//   document
+//     .querySelector(`.player--${activePlayer}`)
+//     .classList.add('player--active');
+// }
+
+// btnNew.addEventListener('click', function () {
+//   if (activePlayer === 0 || activePlayer === 1) {
+//     if (!playing) {
+//       ifPlayerWin();
+//       resetValues();
+//       if (activePlayer === 1) switchPlayer();
+//     } else {
+//       resetValues();
+//       diceEl.classList.add('hidden');
+//       if (activePlayer === 1) switchPlayer();
+//     }
+//   }
 });
